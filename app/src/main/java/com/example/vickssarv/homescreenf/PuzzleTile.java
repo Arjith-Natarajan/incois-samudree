@@ -10,7 +10,7 @@ import android.graphics.Canvas;
 public class PuzzleTile {
 
     private Bitmap bitmap;
-    private int number;
+    private int number=0;
 
     public PuzzleTile(Bitmap bitmap, int number){
         this.bitmap = bitmap;

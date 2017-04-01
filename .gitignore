@@ -66,3 +66,8 @@ captures/
 .idea/libraries/sqlite4java_0_282.xml
 .idea/libraries/volley_1_0_0.xml
 .idea/libraries/vtd_xml_2_11.xml
+.idea/
+.gitignore_BACKUP_11716
+.gitignore_BASE_11716
+.gitignore_LOCAL_11716
+.gitignore_REMOTE_11716
