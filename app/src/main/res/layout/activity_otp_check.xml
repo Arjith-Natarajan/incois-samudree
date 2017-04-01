@@ -8,8 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/otp"
-    tools:context="com.example.vickssarv.otp.otp_check">
+    android:background="@color/textColorPrimary"
+    tools:context="com.example.vickssarv.homescreenf.otp_check">
 
     <ImageView
         android:id="@+id/user"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:layout_marginTop="38dp"
         android:layout_marginStart="57dp"
@@ -50,7 +50,7 @@
         android:layout_marginTop="25dp"
         android:id="@+id/textView4"
         android:textSize="18sp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_below="@+id/textView"
         android:layout_alignEnd="@+id/textView" />
 
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
         android:textSize="18sp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignStart="@+id/textView3" />
@@ -75,14 +75,14 @@
         android:layout_marginTop="11dp"
         android:id="@+id/editText5"
         android:textSize="24sp"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <TextView
         android:text="OTP:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView7"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_alignBaseline="@+id/editText5"
         android:layout_alignBottom="@+id/editText5"
         android:layout_toStartOf="@+id/button2"
@@ -106,7 +106,7 @@
         android:layout_marginTop="21dp"
         android:id="@+id/textView6"
         android:textSize="12sp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true" />
 
