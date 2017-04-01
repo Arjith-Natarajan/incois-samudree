@@ -1,6 +1,6 @@
 package com.example.vickssarv.homescreenf;
 
-import android.app.Dialog;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
+import com.example.vickssarv.homescreenf.fragment.HomeFragment;
+import com.example.vickssarv.homescreenf.fragment.WindDirection;
+
 
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,13 +27,12 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
     protected Toolbar toolbar;
     protected NavigationView navView;
     protected DrawerLayout drawer;
-    Button SOS;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-       SOS =(Button)findViewById(R.id.SOS);
         navView = (NavigationView) findViewById(R.id.nav_view);
         frameLayout = (FrameLayout) findViewById(R.id.nav_generic_frame);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -58,14 +60,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        SOS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(NavigationDrawerActivity.this,SOSActivity.class);
-                startActivity(intent);
-            }
-        });
+        loadHomeFragment();
     }
 
     @Override
@@ -91,7 +86,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         item.setChecked(true);
 
         if (id == R.id.nav_home) {
-           // startHomeActivity();
+          loadHomeFragment();
         }
 //        else if (id == R.id.nav_about_us) {
 //        } else if (id == R.id.nav_terms) {
@@ -99,11 +94,29 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         else if (id == R.id.nav_game) {
             Intent intent =new Intent(NavigationDrawerActivity.this,PuzzleActivity.class);
             startActivity(intent);
+        }else if(id == R.id.nav_wind_direction){
+            loadWindDirectionFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void loadWindDirectionFragment(){
+        WindDirection windDirection = new WindDirection();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_generic_frame, windDirection);
+        ft.addToBackStack("wind_direction");
+        ft.commitAllowingStateLoss();
+    }
+
+    private void loadHomeFragment(){
+        HomeFragment homeFrgament = new HomeFragment();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_generic_frame, homeFrgament);
+        ft.addToBackStack("home");
+        ft.commitAllowingStateLoss();
     }
 
     /*private void startHomeActivity() {
