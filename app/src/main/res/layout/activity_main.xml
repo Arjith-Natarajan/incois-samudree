@@ -75,7 +75,6 @@
 
         android:layout_above="@+id/spinner2"
         android:layout_alignStart="@+id/editText2"
-        android:layout_marginBottom="56dp"
         android:layout_alignEnd="@+id/editText2" />
 
 
