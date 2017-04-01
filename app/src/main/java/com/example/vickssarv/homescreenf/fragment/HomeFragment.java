@@ -1,24 +1,19 @@
 package com.example.vickssarv.homescreenf.fragment;
 
 
-import android.app.DatePickerDialog;
 import android.app.Fragment;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TimePicker;
+import android.widget.ImageView;
 
-import com.example.vickssarv.homescreenf.NavigationDrawerActivity;
 import com.example.vickssarv.homescreenf.R;
 import com.example.vickssarv.homescreenf.SOSActivity;
-
-import java.util.Calendar;
 
 
 /**
@@ -38,7 +33,8 @@ public class HomeFragment extends Fragment {
     Button btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
-    Button btn_sos;
+    View row1;
+    View row2;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -55,18 +51,45 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.home, container, false);
-        btn_sos = (Button)view.findViewById(R.id.btn_sos);
+        row1 = (View)view.findViewById(R.id.first_row);
+        row2 = (View)view.findViewById(R.id.second_row);
 
-        btn_sos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(getActivity(),SOSActivity.class);
-                startActivity(intent);
-            }
-        });
         return  view;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
+        Button btn1 = (Button) row1.findViewById(R.id.home_btn_1);
+        btn1.setText("PFZ");
 
+        ImageView btn1Image = (ImageView)row1.findViewById(R.id.home_btn_img1);
+        btn1Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_explore_black_24dp));
+
+        Button btn2 = (Button) row1.findViewById(R.id.home_btn_2);
+        btn2.setText("SOS");
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sosIntent = new Intent(getActivity(), SOSActivity.class);
+                startActivity(sosIntent);
+            }
+        });
+
+        ImageView btn2Image = (ImageView)row1.findViewById(R.id.home_btn_img2);
+        btn2Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_warning_black_24dp));
+
+        Button btn3 = (Button) row2.findViewById(R.id.home_btn_1);
+        btn3.setText("osf");
+
+        ImageView btn3Image = (ImageView)row2.findViewById(R.id.home_btn_img1);
+        btn3Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_rowing_black_24dp));
+
+        Button btn4 = (Button) row2.findViewById(R.id.home_btn_2);
+        btn4.setText("FEEDBACK");
+
+        ImageView btn4Image = (ImageView)row2.findViewById(R.id.home_btn_img2);
+        btn4Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_feedback_black_24dp));
+    }
 }
