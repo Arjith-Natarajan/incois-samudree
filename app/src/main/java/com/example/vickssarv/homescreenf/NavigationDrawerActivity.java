@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 
 import com.example.vickssarv.homescreenf.fragment.HomeFragment;
 import com.example.vickssarv.homescreenf.fragment.WindDirection;
+import com.example.vickssarv.homescreenf.fragment.WaveHeight;
 
 
 
@@ -91,11 +92,12 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 //        else if (id == R.id.nav_about_us) {
 //        } else if (id == R.id.nav_terms) {
 //        }
-        else if (id == R.id.nav_game) {
-            Intent intent =new Intent(NavigationDrawerActivity.this,PuzzleActivity.class);
-            startActivity(intent);
-        }else if(id == R.id.nav_wind_direction){
+        else if(id == R.id.nav_wind_direction){
             loadWindDirectionFragment();
+        }
+
+        else if(id == R.id.nav_wave_height){
+            loadWaveHeightFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -108,6 +110,14 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.nav_generic_frame, windDirection);
         ft.addToBackStack("wind_direction");
+        ft.commitAllowingStateLoss();
+    }
+
+    private void loadWaveHeightFragment(){
+        WaveHeight waveheight = new WaveHeight();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.nav_generic_frame, waveheight);
+        ft.addToBackStack("wave_height");
         ft.commitAllowingStateLoss();
     }
 

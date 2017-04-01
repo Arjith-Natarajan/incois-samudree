@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.vickssarv.homescreenf.NavigationDrawerActivity;
+import com.example.vickssarv.homescreenf.PuzzleActivity;
 import com.example.vickssarv.homescreenf.R;
 import com.example.vickssarv.homescreenf.SOSActivity;
 
@@ -81,15 +83,22 @@ public class HomeFragment extends Fragment {
         btn2Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_warning_black_24dp));
 
         Button btn3 = (Button) row2.findViewById(R.id.home_btn_1);
-        btn3.setText("osf");
+        btn3.setText("GAME");
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(),PuzzleActivity.class);
+                startActivity(intent);    }
+        });
 
         ImageView btn3Image = (ImageView)row2.findViewById(R.id.home_btn_img1);
-        btn3Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_rowing_black_24dp));
+        btn3Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_extension_black_24dp));
 
         Button btn4 = (Button) row2.findViewById(R.id.home_btn_2);
         btn4.setText("FEEDBACK");
 
         ImageView btn4Image = (ImageView)row2.findViewById(R.id.home_btn_img2);
-        btn4Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_feedback_black_24dp));
+        btn4Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_border_color_black_24dp));
     }
 }
