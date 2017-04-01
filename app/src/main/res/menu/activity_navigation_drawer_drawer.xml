@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_cast_dark"
+            android:title="Home" />
+        <!--<item-->
+            <!--android:id="@+id/nav_about_us"-->
+            <!--android:icon="@drawable/ic_font_download_black_24dp"-->
+            <!--android:title="About Us" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_terms"-->
+            <!--android:icon="@drawable/ic_menu_file_document_24dp"-->
+            <!--android:title="Terms and Conditions" />-->
+
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    </group>
+
+    <item android:title="Other Services">
+        <menu>
+            <item
+                android:id="@+id/nav_game"
+                android:icon="@drawable/ic_cast_disabled_light"
+                android:title="Game" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_cast_off_light"
+                android:title="Terms and Conditions" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_cast_on_0_light"
+                android:title="Privacy Policy" />
+        </menu>
+    </item>
+
+</menu>
