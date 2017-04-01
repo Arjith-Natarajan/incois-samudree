@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,16 +26,12 @@ public class otp_check extends AppCompatActivity {
         TextView name=(TextView) findViewById(R.id.textView3);
         TextView phone=(TextView) findViewById(R.id.textView5);
 
-        Intent i = getIntent();
-        String text = i.getStringExtra ( "TextBox" );
-        String number = i.getStringExtra( "Number" );
+         Intent i = getIntent();
+
+        final String validate_otp =i.getStringExtra("OTP");
 // Now set this value to EditText
-        name.setText ( text );
-        phone.setText( number );
 
-
-
-
+        Log.d("otpcheck","From  Intent OTPcheck "+validate_otp);
 
         Button yourButton = (Button) findViewById(R.id.button2);
 
@@ -42,7 +39,7 @@ public class otp_check extends AppCompatActivity {
             public void onClick(View v) {
                 EditText otp=(EditText) findViewById(R.id.editText5);
                 final String otp_num = otp.getText().toString();
-                if(otp_num.equals("1234"))
+                if(otp_num.equals(validate_otp))
                 {
                     SharedPreferences sharedPref = getSharedPreferences("SharedPreferences",Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
@@ -59,10 +56,5 @@ public class otp_check extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
     }
 }
