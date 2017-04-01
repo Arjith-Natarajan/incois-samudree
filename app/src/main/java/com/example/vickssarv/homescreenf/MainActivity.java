@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                new SendDeviceDetails.execute("139.59.72.134:8000/samudree/submit",json);
 
-                if (txt_name.equals("") || txt_num.equals("") || dropdown1.getSelectedItemPosition() == 0 || dropdown.getSelectedItemPosition() == 0)
+                if (txt_name.equals("") || txt_num.equals("") || dropdown1.getSelectedItemPosition() == 0)
                 { Context context = getApplicationContext();
                     Toast.makeText(context, "Blank Field(s)",
                             Toast.LENGTH_SHORT).show();
