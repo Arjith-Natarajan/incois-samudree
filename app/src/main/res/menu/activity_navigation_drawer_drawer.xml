@@ -19,6 +19,21 @@
             <!--android:id="@+id/nav_manage"-->
             <!--android:icon="@drawable/ic_menu_manage"-->
             <!--android:title="Tools" />-->
+
+        <item android:title="Ocean State Forcast">
+            <menu>
+                <item
+                    android:id="@+id/nav_wind_direction"
+                    android:icon="@drawable/ic_cast_disabled_light"
+                    android:title="Wind Direction" />
+                <item
+                    android:id="@+id/nav_wave_height"
+                    android:icon="@drawable/ic_cast_off_light"
+                    android:title="Wave Height" />
+
+            </menu>
+        </item>
+
     </group>
 
     <item android:title="Other Services">

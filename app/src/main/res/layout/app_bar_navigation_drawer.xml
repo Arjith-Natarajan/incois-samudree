@@ -30,29 +30,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="400dp"
-        android:layout_height="200dp">
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/weather" />
-
-    </android.support.v7.widget.CardView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:gravity="bottom"
-        app:layout_anchorGravity="center_vertical|center_horizontal"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:text="SOS"
-        android:textAlignment="center"
-        android:id="@+id/SOS" />
-
     <include layout="@layout/content_navigation_drawer" />
 
 </android.support.design.widget.CoordinatorLayout>
