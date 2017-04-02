@@ -7,8 +7,7 @@
         android:id="@+id/req_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="request text"/>
+        android:layout_alignParentRight="true"/>
 
     <TextView
         android:id="@+id/res_text"

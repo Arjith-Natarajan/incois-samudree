@@ -71,3 +71,4 @@ captures/
 .gitignore_BASE_11716
 .gitignore_LOCAL_11716
 .gitignore_REMOTE_11716
+gradle.properties
