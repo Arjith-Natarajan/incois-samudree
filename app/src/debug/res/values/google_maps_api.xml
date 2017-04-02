@@ -23,10 +23,9 @@
     string in this file.
     -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-<<<<<<< HEAD
         AIzaSyDtqwPeh5hh1bzP7LvK9-RaEs909k2vdyM
-=======
-        AIzaSyAA7OrL233dUZT7iomNEjeWXM-C7VK796Y
->>>>>>> Akshaya
+
+        <!--AIzaSyAA7OrL233dUZT7iomNEjeWXM-C7VK796Y-->
+
     </string>
 </resources>
