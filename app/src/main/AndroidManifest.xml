@@ -74,6 +74,9 @@
         <activity android:name=".InitialActivity" />
         <activity android:name=".FishingActivity" />
         <activity android:name=".GameActivity"></activity>
+
+        <activity android:name=".ChatBoxActivity"/>
+
     </application>
 
 </manifest>

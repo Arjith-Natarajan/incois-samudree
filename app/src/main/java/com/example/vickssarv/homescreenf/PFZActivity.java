@@ -122,7 +122,7 @@ public class PFZActivity extends AppCompatActivity {
         final Button btn_map = (Button) findViewById(R.id.button5);
         Button btn_text = (Button) findViewById(R.id.button6);
         Spinner dropdown1 = (Spinner) findViewById(spinner2);
-        String[] items1 = new String[]{"Select Region", "Gujarat", "Maharashtra", "Kerala", "South Tamilnadu"};
+        String[] items1 = new String[]{"Select Region", "Gujarat", "maharashtra", "kerala", "South Tamilnadu"};
 
         ArrayAdapter adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items1) {
             @Override
