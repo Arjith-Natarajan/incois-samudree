@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.vickssarv.homescreenf.FeedBack;
+import com.example.vickssarv.homescreenf.GameActivity;
 import com.example.vickssarv.homescreenf.NavigationDrawerActivity;
 import com.example.vickssarv.homescreenf.PuzzleActivity;
 import com.example.vickssarv.homescreenf.PFZActivity;
@@ -40,7 +42,8 @@ public class HomeFragment extends Fragment {
     private int mYear, mMonth, mDay, mHour, mMinute;
     View row1;
     View row2;
-String data;
+    String data;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -55,31 +58,29 @@ String data;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.home, container, false);
-        row1 = (View)view.findViewById(R.id.first_row);
-        row2 = (View)view.findViewById(R.id.second_row);
-        NavigationDrawerActivity activity = (NavigationDrawerActivity) getActivity();
-        //data = activity.getMyData();
-
-        return  view;
+        View view = inflater.inflate(R.layout.home, container, false);
+        row1 = (View) view.findViewById(R.id.first_row);
+        row2 = (View) view.findViewById(R.id.second_row);
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView a = (TextView) getActivity().findViewById(R.id.temp1);
-        a.setText(data);
+//        TextView a = (TextView) getActivity().findViewById(R.id.temp1);
+//        a.setText(data);
 
         Button btn1 = (Button) row1.findViewById(R.id.home_btn_1);
         btn1.setText("PFZ");
 
         btn1.setOnClickListener(new View.OnClickListener() {
-            @Override            public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
                 Intent sosIntent = new Intent(HomeFragment.this.getActivity(), PFZActivity.class);
                 startActivity(sosIntent);
             }
         });
-        ImageView btn1Image = (ImageView)row1.findViewById(R.id.home_btn_img1);
+        ImageView btn1Image = (ImageView) row1.findViewById(R.id.home_btn_img1);
         btn1Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_explore_black_24dp));
 
         Button btn2 = (Button) row1.findViewById(R.id.home_btn_2);
@@ -92,7 +93,7 @@ String data;
             }
         });
 
-        ImageView btn2Image = (ImageView)row1.findViewById(R.id.home_btn_img2);
+        ImageView btn2Image = (ImageView) row1.findViewById(R.id.home_btn_img2);
         btn2Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_warning_black_24dp));
 
         Button btn3 = (Button) row2.findViewById(R.id.home_btn_1);
@@ -101,17 +102,26 @@ String data;
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(getActivity(),PuzzleActivity.class);
-                startActivity(intent);    }
+                Intent intent = new Intent(getActivity(), GameActivity.class);
+                startActivity(intent);
+            }
         });
 
-        ImageView btn3Image = (ImageView)row2.findViewById(R.id.home_btn_img1);
+        ImageView btn3Image = (ImageView) row2.findViewById(R.id.home_btn_img1);
         btn3Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_extension_black_24dp));
 
         Button btn4 = (Button) row2.findViewById(R.id.home_btn_2);
         btn4.setText("FEEDBACK");
 
-        ImageView btn4Image = (ImageView)row2.findViewById(R.id.home_btn_img2);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), FeedBack.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView btn4Image = (ImageView) row2.findViewById(R.id.home_btn_img2);
         btn4Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_border_color_black_24dp));
     }
 }

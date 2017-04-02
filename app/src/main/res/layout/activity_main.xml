@@ -26,6 +26,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:elevation="10dp"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         />

@@ -1,6 +1,7 @@
 package com.example.vickssarv.homescreenf;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -9,6 +10,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -69,7 +71,7 @@ public class SOSActivity extends AppCompatActivity {
                     //lon.setText(String.valueOf(location.getLongitude()));
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
-                    z.setText(String.valueOf(latitude)+"/"+String.valueOf(longitude));
+                   // z.setText(String.valueOf(latitude)+"/"+String.valueOf(longitude));
 
 
                 }
@@ -127,16 +129,29 @@ public class SOSActivity extends AppCompatActivity {
 
                 Log.d("lat:",String.valueOf(latitude));
                 Log.d("lon:",String.valueOf(longitude));
-                Intent intent=new Intent(SOSActivity.this,MapsActivity.class);
-                intent.putExtra("lat",latitude);
-                intent.putExtra("lon",longitude);
+
+
 
 
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("latitude",String.valueOf(latitude));
                 params.put("longotude",String.valueOf(longitude));
-                z.setText(String.valueOf(latitude)+"/"+String.valueOf(longitude));
-                startActivity(intent);
+                //z.setText(String.valueOf(latitude)+"/"+String.valueOf(longitude));
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(SOSActivity.this);
+                builder1.setMessage("Your lat-long has been sent to our team");
+                builder1.setTitle("SOS Alert");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent (SOSActivity.this, NavigationDrawerActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
             }
         });
     }

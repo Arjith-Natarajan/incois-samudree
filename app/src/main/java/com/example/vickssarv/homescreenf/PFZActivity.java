@@ -6,9 +6,14 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,6 +29,9 @@ import org.json.JSONObject;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.vickssarv.homescreenf.R.id.spinner1;
+import static com.example.vickssarv.homescreenf.R.id.spinner2;
 
 public class PFZActivity extends AppCompatActivity {
 
@@ -73,12 +81,27 @@ public class PFZActivity extends AppCompatActivity {
                                     String lon = resObj.get("longitude");
                                     String distance=resObj.get("distance_to_coast");
                                     String cname=resObj.get("coast_name");
-                                    System.out.println(lat);
+                                    String coast_lat = resObj.get("coast_lat");
+                                    String coast_long = resObj.get("coast_long");
+                                    String min_fish_lat = resObj.get("min_fish_lat");
+                                    String min_fish_long = resObj.get("min_fish_long");
+                                    String max_fish_lat = resObj.get("max_fish_lat");
+                                    String max_fish_long = resObj.get("max_fish_long");
+
+                                     System.out.println(lat);
                                     Intent intent = new Intent(PFZActivity.this,MapsActivity.class);
                                     intent.putExtra("Latitude",lat);
                                     intent.putExtra("Longitude",lon);
                                     intent.putExtra("distance",distance);
                                     intent.putExtra("cname",cname);
+                                    intent.putExtra("coast_lat",String.valueOf(coast_lat));
+                                    intent.putExtra("coast_long",String.valueOf(coast_long));
+                                    intent.putExtra("min_fish_lat",String.valueOf(min_fish_lat));
+                                    intent.putExtra("min_fish_long",String.valueOf(min_fish_long));
+                                    intent.putExtra("max_fish_lat",String.valueOf(max_fish_lat));
+                                    intent.putExtra("max_fish_long",String.valueOf(max_fish_long));
+
+
                                     startActivity(intent);
                                 } catch (Exception e) {
                                     e.getMessage();
@@ -95,6 +118,49 @@ public class PFZActivity extends AppCompatActivity {
 
             }
         });
+        final ImageView img = (ImageView) findViewById(R.id.imageView2);
+        final Button btn_map = (Button) findViewById(R.id.button5);
+        Button btn_text = (Button) findViewById(R.id.button6);
+        Spinner dropdown1 = (Spinner) findViewById(spinner2);
+        String[] items1 = new String[]{"Select Region", "Gujarat", "Maharashtra", "Kerala", "South Tamilnadu"};
+
+        ArrayAdapter adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items1) {
+            @Override
+            public boolean isEnabled(int position1) {
+                if (position1 == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        };
+        dropdown1.setAdapter(adapter1);
+        dropdown1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int pos, long arg3) {
+                // TODO Auto-generated method stub
+                if(pos == 1)
+                {
+                    btn_map.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            img.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.gujarat));
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
 
     }
 

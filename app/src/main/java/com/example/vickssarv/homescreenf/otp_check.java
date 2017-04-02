@@ -23,8 +23,7 @@ public class otp_check extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_check);
 
-        TextView name=(TextView) findViewById(R.id.textView3);
-        TextView phone=(TextView) findViewById(R.id.textView5);
+
 
          Intent i = getIntent();
 

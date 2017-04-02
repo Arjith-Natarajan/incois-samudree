@@ -6,17 +6,31 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.sos.SOSActivity">
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_centerInParent="true"
-        android:text="Send Alert!"
-        android:id="@+id/alert"
-        android:background="@android:color/holo_red_dark"
-        android:textColor="@android:color/white"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/z"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Alert"
+        android:id="@+id/alert"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="191dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/sos"
+        android:id="@+id/imageView3"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:layout_marginBottom="77dp"
+        android:layout_above="@+id/alert"
+        android:layout_toEndOf="@+id/z" />
 
 </RelativeLayout>

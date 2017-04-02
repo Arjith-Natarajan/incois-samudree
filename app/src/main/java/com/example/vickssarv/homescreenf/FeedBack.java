@@ -1,5 +1,6 @@
 package com.example.vickssarv.homescreenf;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -58,6 +59,8 @@ public class FeedBack extends AppCompatActivity {
                     }
                 });
                 queue.add(req);
+                Intent intent = new Intent (FeedBack.this, NavigationDrawerActivity.class);
+            startActivity(intent);
             }
         });
     }
