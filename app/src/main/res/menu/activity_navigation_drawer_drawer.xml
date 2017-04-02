@@ -23,10 +23,6 @@
         <item android:title="Ocean State Forcast">
             <menu>
                 <item
-                    android:id="@+id/nav_wind_direction"
-                    android:icon="@drawable/ic_rowing_black_24dp"
-                    android:title="Wind Direction" />
-                <item
                     android:id="@+id/nav_wave_height"
                     android:icon="@drawable/ic_rowing_black_24dp"
                     android:title="Wave Height" />
@@ -43,13 +39,10 @@
                 android:icon="@drawable/ic_info_black_24dp"
                 android:title="About" />
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_cast_off_light"
-                android:title="Terms and Conditions" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_media_pause"
-                android:title="Privacy Policy" />
+                android:id="@+id/nav_news"
+                android:icon="@drawable/ic_import_contacts_black_24dp"
+                android:title="Latest News" />
+
         </menu>
     </item>
 

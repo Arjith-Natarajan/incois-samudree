@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,12 +11,55 @@
     tools:context="com.example.vickssarv.homescreenf.PFZActivity">
 
     <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Navigation"
+        android:id="@+id/but_pfz"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:layout_marginEnd="115dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Map View"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/but_pfz"
+        android:layout_alignStart="@+id/but_pfz" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/fish"
+        android:id="@+id/imageView2"
+        android:layout_marginBottom="109dp"
+        android:layout_above="@+id/button5"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Text View"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:elevation="8dp"
+        android:layout_above="@+id/button5"
+        android:layout_alignStart="@+id/button5"
+        android:layout_marginBottom="13dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do you want to know the nearest fishing zone?"
-        android:id="@+id/but_pfz"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_blue_light"
-        />
+        android:background="@android:drawable/btn_dropdown"
+android:elevation="16dp"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/button6"
+        android:layout_alignStart="@+id/button6" />
 </RelativeLayout>

@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 
 import com.example.vickssarv.homescreenf.fragment.HomeFragment;
 import com.example.vickssarv.homescreenf.fragment.WaveHeight;
-import com.example.vickssarv.homescreenf.fragment.WindDirection;
 
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -120,7 +119,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         if (drawer.isDrawerOpen(GravityCompat.START)) {
            // showAlertDialog();
         } else {
-            drawer.openDrawer(GravityCompat.START);
+
         }
     }
 
@@ -142,9 +141,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 //        else if (id == R.id.nav_about_us) {
 //        } else if (id == R.id.nav_terms) {
 //        }
-        else if(id == R.id.nav_wind_direction){
-            loadWindDirectionFragment();
-        }
+
 
         else if(id == R.id.nav_wave_height){
             loadWaveHeightFragment();
@@ -155,13 +152,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         return true;
     }
 
-    private void loadWindDirectionFragment(){
-        WindDirection windDirection = new WindDirection();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_generic_frame, windDirection);
-        ft.addToBackStack("wind_direction");
-        ft.commitAllowingStateLoss();
-    }
+
 
     private void loadWaveHeightFragment(){
         WaveHeight waveheight = new WaveHeight();
