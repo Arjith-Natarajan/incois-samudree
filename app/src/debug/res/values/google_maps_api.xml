@@ -4,10 +4,17 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
+
     https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=0D:6D:B8:1C:F4:D1:08:B0:02:E0:30:0B:2F:77:40:01:D3:83:63:7E%3Bcom.example.vickssarv.homescreenf
 
     You can also add your credentials to an existing key, using this line:
     0D:6D:B8:1C:F4:D1:08:B0:02:E0:30:0B:2F:77:40:01:D3:83:63:7E;com.example.vickssarv.homescreenf
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=C4:A1:F8:0B:1E:03:BD:58:A9:C9:12:56:EF:3F:3D:F2:EF:8C:C6:7C%3Bcom.example.vickssarv.homescreenf
+
+    You can also add your credentials to an existing key, using this line:
+    C4:A1:F8:0B:1E:03:BD:58:A9:C9:12:56:EF:3F:3D:F2:EF:8C:C6:7C;com.example.vickssarv.homescreenf
+
 
     Alternatively, follow the directions here:
     https://developers.google.com/maps/documentation/android/start#get-key
@@ -16,6 +23,10 @@
     string in this file.
     -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+<<<<<<< HEAD
         AIzaSyDtqwPeh5hh1bzP7LvK9-RaEs909k2vdyM
+=======
+        AIzaSyAA7OrL233dUZT7iomNEjeWXM-C7VK796Y
+>>>>>>> Akshaya
     </string>
 </resources>
