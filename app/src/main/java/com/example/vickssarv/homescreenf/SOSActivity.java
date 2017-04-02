@@ -16,6 +16,22 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.HashMap;
 
 public class SOSActivity extends AppCompatActivity {
 
@@ -99,7 +115,7 @@ public class SOSActivity extends AppCompatActivity {
                     //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
                     //                                          int[] grantResults)
                     // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
+                    // for ActivityCompat#requestPermissions for more det   ails.
                     return;
                 }
 
@@ -108,12 +124,19 @@ public class SOSActivity extends AppCompatActivity {
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
                 }
+
                 Log.d("lat:",String.valueOf(latitude));
                 Log.d("lon:",String.valueOf(longitude));
+                Intent intent=new Intent(SOSActivity.this,MapsActivity.class);
+                intent.putExtra("lat",latitude);
+                intent.putExtra("lon",longitude);
+
+
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("latitude",String.valueOf(latitude));
                 params.put("longotude",String.valueOf(longitude));
                 z.setText(String.valueOf(latitude)+"/"+String.valueOf(longitude));
+                startActivity(intent);
             }
         });
     }
