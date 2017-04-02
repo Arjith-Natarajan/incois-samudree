@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_cast_dark"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="Home" />
         <!--<item-->
             <!--android:id="@+id/nav_about_us"-->
@@ -24,11 +24,11 @@
             <menu>
                 <item
                     android:id="@+id/nav_wind_direction"
-                    android:icon="@drawable/ic_cast_disabled_light"
+                    android:icon="@drawable/ic_rowing_black_24dp"
                     android:title="Wind Direction" />
                 <item
                     android:id="@+id/nav_wave_height"
-                    android:icon="@drawable/ic_cast_off_light"
+                    android:icon="@drawable/ic_rowing_black_24dp"
                     android:title="Wave Height" />
 
             </menu>
@@ -36,19 +36,19 @@
 
     </group>
 
-    <item android:title="Other Services">
+    <item android:title="INCOIS">
         <menu>
             <item
-                android:id="@+id/nav_game"
-                android:icon="@drawable/ic_cast_disabled_light"
-                android:title="Game" />
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_info_black_24dp"
+                android:title="About" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_cast_off_light"
                 android:title="Terms and Conditions" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_cast_on_0_light"
+                android:icon="@drawable/ic_media_pause"
                 android:title="Privacy Policy" />
         </menu>
     </item>
