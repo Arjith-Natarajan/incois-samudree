@@ -1,7 +1,6 @@
 package com.example.vickssarv.homescreenf;
 
 import android.app.FragmentTransaction;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -11,22 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.example.vickssarv.homescreenf.fragment.HomeFragment;
-import com.example.vickssarv.homescreenf.fragment.WindDirection;
 import com.example.vickssarv.homescreenf.fragment.WaveHeight;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-
-import static android.content.ContentValues.TAG;
 
 
 public class NavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -129,7 +118,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         if (drawer.isDrawerOpen(GravityCompat.START)) {
            // showAlertDialog();
         } else {
-            drawer.openDrawer(GravityCompat.START);
+
         }
     }
 
@@ -151,9 +140,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
 //        else if (id == R.id.nav_about_us) {
 //        } else if (id == R.id.nav_terms) {
 //        }
-        else if(id == R.id.nav_wind_direction){
-            loadWindDirectionFragment();
-        }
+
 
         else if(id == R.id.nav_wave_height){
             loadWaveHeightFragment();
@@ -164,13 +151,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
         return true;
     }
 
-    private void loadWindDirectionFragment(){
-        WindDirection windDirection = new WindDirection();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.nav_generic_frame, windDirection);
-        ft.addToBackStack("wind_direction");
-        ft.commitAllowingStateLoss();
-    }
+
 
     private void loadWaveHeightFragment(){
         WaveHeight waveheight = new WaveHeight();

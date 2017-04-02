@@ -33,14 +33,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     LocationManager locationManager;
     LocationListener locationListener;
-    Polyline line;
+    Polyline line,linecton,linectos;
     private TextView lat, lon;
-    private Marker marker;
+    private Marker marker,coastm,fish_northm,fish_southm;
 
     private GoogleMap mMap;
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     TextView port,dist;
-    LatLng fish;
+    LatLng fish,fish_south,fish_north,coast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Log.d("supcoolLAT",String.valueOf(latitude));
  //       Log.d("surcoolLON")
         String cname = intent.getStringExtra("cname");
+        double coast_lat = Double.parseDouble(intent.getStringExtra("coast_lat"));
+        double coast_long = Double.parseDouble(intent.getStringExtra("coast_long"));
+        double min_fish_lat = Double.parseDouble(intent.getStringExtra("min_fish_lat"));
+        double min_fish_long = Double.parseDouble(intent.getStringExtra("min_fish_long"));
+        double max_fish_lat = Double.parseDouble(intent.getStringExtra("max_fish_lat"));
+        double max_fish_long = Double.parseDouble(intent.getStringExtra("max_fish_long"));
+
         port = (TextView) findViewById(R.id.port);
         dist = (TextView) findViewById(R.id.dist);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -60,6 +67,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         fish = new LatLng(latitude,longitude);
+        fish_south = new LatLng(min_fish_lat,min_fish_long);
+        fish_north = new LatLng(max_fish_lat,max_fish_long);
+        coast = new LatLng(coast_lat,coast_long);
         port.setText(cname);
         dist.setText(String.valueOf(distance));
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -83,10 +93,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
                 line = mMap.addPolyline(new PolylineOptions()
-                        .add(curr, fish)
+                        .add(coast, fish)
                         .width(5)
                         .color(Color.RED));
-                double results = distance(curr.latitude, curr.longitude, fish.latitude, fish.longitude);
+                double results = distance(coast.latitude, coast.longitude, fish.latitude, fish.longitude);
                 try {
                     marker.remove();
                 }catch(NullPointerException e)
@@ -94,6 +104,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     e.printStackTrace();
                 }
                 marker = mMap.addMarker(new MarkerOptions().position(fish).title("FISH").snippet(String.format("%.2f", results) + "km"));
+                coastm = mMap.addMarker(new MarkerOptions().position(coast).title("coast"));
+                fish_northm = mMap.addMarker(new MarkerOptions().position(fish_north).title("Fish_north"));
+                fish_southm = mMap.addMarker(new MarkerOptions().position(fish_south).title("Fish_south"));
+
                 Log.d("lat:", String.valueOf(fish.latitude));
                 Log.d("long:", String.valueOf(fish.longitude));
             }
@@ -227,15 +241,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             e.printStackTrace();
         }
         line = mMap.addPolyline(new PolylineOptions()
-                .add(new LatLng(latitude, longitude), fish)
+                .add(coast, fish)
+                .width(5)
+                .color(Color.RED));
+
+        line = mMap.addPolyline(new PolylineOptions()
+                .add(coast, fish_north)
+                .width(5)
+                .color(Color.RED));
+
+        line = mMap.addPolyline(new PolylineOptions()
+                .add(coast, fish_south)
                 .width(5)
                 .color(Color.RED));
         double results;
         results = distance(latitude, longitude, fish.latitude, fish.longitude);
         //Log.d("distance(in km)", String.valueOf(results));
-        marker = mMap.addMarker(new MarkerOptions().position(fish).title("fish").snippet(String.format("%.2f", results) + "km"));
+        //marker = mMap.addMarker(new MarkerOptions().position(fish).title("fish").snippet(String.format("%.2f", results) + "km"));
         //mMap.addMarker(marker);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(fish));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fish, 16));
     }
 
     //function to calculate distance
