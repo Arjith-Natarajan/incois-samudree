@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.vickssarv.homescreenf.PFZActivity;
 import com.example.vickssarv.homescreenf.R;
 import com.example.vickssarv.homescreenf.SOSActivity;
 
@@ -64,6 +65,12 @@ public class HomeFragment extends Fragment {
         Button btn1 = (Button) row1.findViewById(R.id.home_btn_1);
         btn1.setText("PFZ");
 
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                Intent sosIntent = new Intent(HomeFragment.this.getActivity(), PFZActivity.class);
+                startActivity(sosIntent);
+            }
+        });
         ImageView btn1Image = (ImageView)row1.findViewById(R.id.home_btn_img1);
         btn1Image.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_explore_black_24dp));
 
@@ -72,7 +79,7 @@ public class HomeFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent sosIntent = new Intent(getActivity(), SOSActivity.class);
+                Intent sosIntent = new Intent(HomeFragment.this.getActivity(), SOSActivity.class);
                 startActivity(sosIntent);
             }
         });
